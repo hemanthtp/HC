@@ -1,0 +1,15 @@
+library(animation)
+getwd()
+setwd('D:/')
+ani.options(outdir = getwd())
+pdf("medical.pdf")
+plot(1:10)
+dev.off()
+im.convert("medical.pdf", output = "medica.jpeg")
+
+install.packages("pdftools", dep = TRUE)
+
+library(pdftools)
+download.file("http://arxiv.org/pdf/1403.2805.pdf", "1403.2805.pdf", mode = "wb")
+txt <- pdf_text("1403.2805.pdf")
+cat(txt[1])
